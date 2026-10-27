@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Administrator Registration | CampusX</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+  <link rel="stylesheet" href="../assets/css/login.css">
+<link rel="stylesheet" href="../assets/css/ui-system.css"></head>
+<body class="login-page auth-register-page">
+  <main class="login-shell" id="admin-register-content">
+    <section class="login-brand-panel" aria-labelledby="admin-register-heading">
+      <div class="login-brand-inner">
+        <a class="brand login-brand" href="../index.html"><span class="brand-mark"><i class="fa-solid fa-building-columns" aria-hidden="true"></i></span><span><strong>Campus<span>X</span></strong><small>Supabase Authentication</small></span></a>
+        <div class="login-brand-copy"><span class="eyebrow light">ADMIN REGISTRATION</span><h1 id="admin-register-heading">Request an administrative account.</h1><p>Accounts stay pending until the Director/Super Admin approves the requested role.</p></div>
+      </div>
+    </section>
+    <section class="login-form-panel">
+      <div class="login-form-card">
+        <div class="login-top-links"><a class="text-link" href="../login.html"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to Login</a><span class="secure-indicator"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Supabase Auth</span></div>
+        <header class="login-heading"><span class="eyebrow">Administrator Registration</span><h2>Create administrative account</h2><p>Use your institutional email. Registration creates a pending request; the requested role is not active until approved.</p></header>
+        <div id="admin-register-status" class="login-status" role="alert" hidden></div>
+        <form class="login-form" data-admin-registration-form novalidate>
+          <div class="form-field">
+            <label for="fullName">Full Name <span aria-hidden="true">*</span></label>
+            <div class="input-wrap has-leading-icon">
+              <i class="fa-regular fa-user input-icon" aria-hidden="true"></i>
+              <input id="fullName" name="fullName" required autocomplete="name" placeholder="Enter your full name">
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="email">Email <span aria-hidden="true">*</span></label>
+            <div class="input-wrap has-leading-icon">
+              <i class="fa-regular fa-envelope input-icon" aria-hidden="true"></i>
+              <input id="email" name="email" type="email" required autocomplete="email" placeholder="Enter your institutional email">
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="requestedRole">Requested Administrative Role <span aria-hidden="true">*</span></label>
+            <div class="select-wrap has-trailing-icon">
+              <select id="requestedRole" name="requestedRole" required>
+                <option value="">Select requested role</option>
+                <option value="FACULTY_ADMIN">Faculty Administration</option>
+                <option value="CR_ADMIN">Class Representative</option>
+                <option value="COUNCIL_ADMIN">Student Council</option>
+                <option value="CRC_ADMIN">Corporate Resource Cell</option>
+                <option value="INSTITUTE_ADMIN">Institute Administration</option>
+                <option value="SUPER_ADMIN">Super Admin / Director</option>
+              </select>
+              <i class="fa-solid fa-chevron-down select-chevron" aria-hidden="true"></i>
+            </div>
+            <small class="field-help">Privileged roles require explicit Super Admin approval.</small>
+          </div>
+          <div class="form-field">
+            <label for="password">Password <span aria-hidden="true">*</span></label>
+            <div class="input-wrap has-leading-icon has-trailing-action">
+              <i class="fa-solid fa-lock input-icon" aria-hidden="true"></i>
+              <input id="password" name="password" type="password" required minlength="10" autocomplete="new-password" placeholder="Create a strong password">
+              <button type="button" class="password-toggle" data-password-toggle data-target="password" aria-label="Show password" aria-pressed="false"><i class="fa-regular fa-eye" aria-hidden="true"></i></button>
+            </div>
+            <small class="field-help">Minimum 10 characters with uppercase, lowercase, number and symbol.</small>
+          </div>
+          <div class="form-field">
+            <label for="confirmPassword">Confirm Password <span aria-hidden="true">*</span></label>
+            <div class="input-wrap has-leading-icon has-trailing-action">
+              <i class="fa-solid fa-shield-halved input-icon" aria-hidden="true"></i>
+              <input id="confirmPassword" name="confirmPassword" type="password" required minlength="10" autocomplete="new-password" placeholder="Re-enter your password">
+              <button type="button" class="password-toggle" data-password-toggle data-target="confirmPassword" aria-label="Show confirm password" aria-pressed="false"><i class="fa-regular fa-eye" aria-hidden="true"></i></button>
+            </div>
+          </div>
+          <button class="btn btn-primary btn-lg login-submit" type="submit"><span>Submit Registration Request</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+          <p class="login-development-note">Supabase Auth stores the password securely. The CMS stores only profile and approval metadata.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../assets/js/supabase/supabase-client.js"></script>
+  <script src="../assets/js/supabase/admin-registration.js"></script>
+</body>
+</html>

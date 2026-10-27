@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Student Portal registration request for CampusX College Management System.">
+  <title>Student Registration | CampusX</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+  <link rel="stylesheet" href="../assets/css/student-portal.css">
+<link rel="stylesheet" href="../assets/css/ui-system.css"></head>
+<body class="student-register-page" data-student-portal-register="true">
+  <main class="student-register-shell">
+    <section class="student-register-card">
+      <a class="text-link" href="../login.html">← Back to Login</a>
+      <span class="eyebrow">STUDENT PORTAL · SUPABASE AUTH</span>
+      <h1>Student Registration Request</h1>
+      <p>Submit a request for Student Portal access. Institute Admin will verify your Student ID and Admission Number before enabling login.</p>
+      <div class="student-demo-notice"><strong>Demo Mode Notice:</strong> Supabase Auth creates the login account. Institute Admin approval creates the STUDENT_USER role link before access is enabled.</div>
+      <div id="student-register-status" class="student-register-status" role="alert" aria-live="assertive" hidden></div>
+      <form id="student-register-form" class="student-register-form" action="#" method="post" novalidate>
+        <h2>Personal Information</h2>
+        <div class="portal-form-grid">
+          <label>Student ID *<input name="studentId" required placeholder="STU1049"></label>
+          <label>Admission Number *<input name="admissionNo" required placeholder="ADM260250"></label>
+          <label>First Name *<input name="firstName" required></label>
+          <label>Middle Name<input name="middleName"></label>
+          <label>Last Name *<input name="lastName" required></label>
+          <label>Date of Birth *<input name="dob" type="date" required></label>
+          <label>Gender *<select name="gender" required><option value="">Select Gender</option><option>Female</option><option>Male</option><option>Other</option><option>Prefer not to say</option></select></label>
+          <label>Email *<input name="email" type="email" required></label>
+          <label>Phone *<input name="phone" required placeholder="10 digit phone"></label>
+        </div>
+        <h2>Account Request</h2>
+        <div class="portal-form-grid">
+          <label>Username / Email *<input name="username" type="email" required></label>
+          <label>Password *<input name="password" type="password" required minlength="10" autocomplete="new-password"><small>Minimum 10 characters with uppercase, lowercase, number and symbol.</small></label>
+          <label>Confirm Password *<input name="confirmPassword" type="password" required minlength="10" autocomplete="new-password"></label>
+        </div>
+        <label class="student-declaration"><input name="declaration" type="checkbox" required> I confirm that the information provided is correct and belongs to me.</label>
+        <div class="student-register-actions">
+          <button class="btn btn-primary" type="submit">Submit Registration Request</button>
+          <button class="btn btn-secondary" type="reset">Reset</button>
+        </div>
+      </form>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="../assets/js/supabase/supabase-client.js"></script>
+  <script src="../assets/js/supabase/student-registration.js"></script>
+  <script src="../assets/js/student-portal.js"></script>
+</body>
+</html>
